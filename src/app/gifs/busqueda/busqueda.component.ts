@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { GifsServiceService } from '../../gifs-service.service';
+import { GifsServiceService } from '../gifs-service.service';
 
 @Component({
   selector: 'app-busqueda',
@@ -16,6 +16,7 @@ export class BusquedaComponent {
   //Metotdo que recibe un string y llama al metodo que tiene el service para añadir a su array
   addQuery(query:string){
     this.gifs_Service.buscarGifs(query);
+    this.query="";
   }
 
 }

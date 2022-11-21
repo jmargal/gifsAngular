@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GifsServiceService } from './gifs-service.service';
 import { GifsPageComponent } from './gifs-page/gifs-page.component';
-import { BusquedaComponent } from './gifs-page/busqueda/busqueda.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 import { FormsModule } from '@angular/forms';
 
 

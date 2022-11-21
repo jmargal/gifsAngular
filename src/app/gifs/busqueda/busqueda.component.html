@@ -1,5 +1,5 @@
 <h5>Buscar:</h5>
-<!-- El ngModel hace el binding de query
+<!-- El ngModel hace el binding de query, es decir, une esa propiedad bidireccionalmente, si cambia en una cambia en la otra
 El keydown.enter es el evento, cuando hagan intro llamara al metodo del componente -->
 <input [(ngModel)]="query" (keydown.enter)="addQuery(query)" type="text" class="form-control"
   placeholder="Buscar gifs...">

@@ -1,7 +1,12 @@
 <!-- Resultados -->
 <div class="row">
-  <div *ngFor="let gif of results">
-      <img src="{{gif.images.downsized.url}}">
+  <div *ngFor="let gif of results" class="col-md-4 col-sm-6">
+    <img [src]="gif.images.downsized_medium.url" [alt]="gif.title" class="card-img-top">
+    <div class="card-body">
+      <p class="card-text">
+        {{gif.title}}
+      </p>
+    </div>
   </div>
 </div>
 

@@ -4,6 +4,7 @@ import { GifsServiceService } from './gifs-service.service';
 import { GifsPageComponent } from './gifs-page/gifs-page.component';
 import { BusquedaComponent } from './busqueda/busqueda.component';
 import { FormsModule } from '@angular/forms';
+import { ResultadosComponent } from './resultados/resultados.component';
 
 
 
@@ -13,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     //Declara los componentes que van a formar parte de este modulo
-    GifsPageComponent,BusquedaComponent
+    GifsPageComponent,BusquedaComponent,ResultadosComponent
   ],
   imports: [
     //Importo el modulo de Form que hace cosas con los formularios
@@ -22,6 +23,6 @@ import { FormsModule } from '@angular/forms';
   //El provider es el service
   providers:[GifsServiceService],
   //Exporto estos componentes para que cuando importen este modulo puedan utilizarlos
-  exports:[GifsPageComponent,BusquedaComponent]
+  exports:[GifsPageComponent,BusquedaComponent,ResultadosComponent]
 })
 export class GifsModule { }

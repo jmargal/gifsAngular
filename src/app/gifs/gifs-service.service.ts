@@ -7,23 +7,16 @@ import { Gif, GifsSearchResponse } from './interfaces/searchResponse.interface';
 })
 export class GifsServiceService {
   constructor(private http: HttpClient) {
-    console.log('Servicio iniciado');
+    //Recupero el posible historial que pueda tener en el local storage
+    this._historial = JSON.parse(localStorage.getItem('historial')!) || [];
   }
 
-  private api_key: string = 'JdN5nmMVa5MNOjhuDtyJhxMpHZMTppZL&q';
+  private api_key: string = 'JdN5nmMVa5MNOjhuDtyJhxMpHZMTppZL';
   private url: string = 'https://api.giphy.com/v1/gifs/search';
-  results: Gif[]=[];
+  results: Gif[] = [];
 
   //El array sobre el q voy a trabajar
-  private _historial = [
-    'Perros',
-    'Gatos',
-    'Osos',
-    'Moscas',
-    'Pandas',
-    'Vacas',
-    'Monos',
-  ];
+  private _historial = [''];
 
   //Metodo que devuelve una copia del array
   get historial(): string[] {
@@ -37,12 +30,16 @@ export class GifsServiceService {
     if (clean !== '' && !this._historial.includes(clean)) {
       this._historial.unshift(query);
       this._historial = this._historial.splice(0, 10);
+      //Setteo el array que tengo
+      localStorage.setItem('historial', JSON.stringify(this._historial));
     }
 
     const params = new HttpParams()
       .set('api_key', this.api_key)
       .set('q', query);
 
-    this.http.get<GifsSearchResponse>(this.url, { params }).subscribe((resp) => this.results=resp.data);
+    this.http
+      .get<GifsSearchResponse>(this.url, { params })
+      .subscribe((resp) => (this.results = resp.data));
   }
 }

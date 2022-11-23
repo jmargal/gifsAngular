@@ -6,6 +6,7 @@ import { GifsServiceService } from './gifs/gifs-service.service';
 import { SharedModule } from './shared/shared.module';
 import { GifsModule } from './gifs/gifs.module';
 
+
 @NgModule({
   declarations: [
     AppComponent
